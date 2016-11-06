@@ -60,36 +60,65 @@ public class DrawField extends View
         super.onDraw(canvas);
 
         int space = 350;
-        int outlinemargin =30;
+        int outerPos = 30;
+        int middlePos = 200;
+        int innerPos = 350;
+        int fieldWidth = 30;
 
 
         Rect outer = new Rect();
-        outer.set(outlinemargin, outlinemargin,canvas.getWidth()-outlinemargin,canvas.getHeight()-outlinemargin);
+        outer.set(outerPos, outerPos,canvas.getWidth()-outerPos,canvas.getHeight()-outerPos);
         Rect middle = new Rect();
-        middle.set(200, 200,canvas.getWidth()-200,canvas.getHeight()-200);
+        middle.set(middlePos, middlePos,canvas.getWidth()-middlePos,canvas.getHeight()-middlePos);
         Rect inner = new Rect();
-        inner.set(350, 350,canvas.getWidth()-350,canvas.getHeight()-350);
+        inner.set(innerPos, innerPos,canvas.getWidth()-innerPos,canvas.getHeight()-innerPos);
 
 
 
 
-        canvas.drawLine(outlinemargin, canvas.getHeight()/2, space, canvas.getHeight()/2, outlinePaint); //1st left to right
-        canvas.drawLine(canvas.getWidth()-space, canvas.getHeight()/2, canvas.getWidth()-outlinemargin, canvas.getHeight()/2, outlinePaint); //2nd left to right
-        canvas.drawLine(canvas.getWidth()/2, outlinemargin,canvas.getWidth()/2, space, outlinePaint); //1st top to bottom
-        canvas.drawLine(canvas.getWidth()/2, canvas.getHeight()-space, canvas.getWidth()/2, canvas.getHeight()-outlinemargin, outlinePaint); //2nd top to bottom
+        canvas.drawLine(outerPos, canvas.getHeight()/2, space, canvas.getHeight()/2, outlinePaint); //1st left to right
+        canvas.drawLine(canvas.getWidth()-space, canvas.getHeight()/2, canvas.getWidth()-outerPos, canvas.getHeight()/2, outlinePaint); //2nd left to right
+        canvas.drawLine(canvas.getWidth()/2, outerPos,canvas.getWidth()/2, space, outlinePaint); //1st top to bottom
+        canvas.drawLine(canvas.getWidth()/2, canvas.getHeight()-space, canvas.getWidth()/2, canvas.getHeight()-outerPos, outlinePaint); //2nd top to bottom
         canvas.drawRect(outer, outlinePaint);
         canvas.drawRect(middle, outlinePaint);
         canvas.drawRect(inner, outlinePaint);
         Log.d("test", "got created");
 
 
-        int circleNumbers = 24;
+        //1st Row down
+        canvas.drawCircle(outerPos,outerPos,fieldWidth,fields);
+        canvas.drawCircle(outerPos,canvas.getHeight()/2,fieldWidth,fields);
+        canvas.drawCircle(outerPos,canvas.getHeight()-outerPos,fieldWidth,fields);
+        //2nd Row down
+        canvas.drawCircle(middlePos,middlePos,fieldWidth,fields);
+        canvas.drawCircle(middlePos,canvas.getHeight()/2,fieldWidth,fields);
+        canvas.drawCircle(middlePos,canvas.getHeight()-middlePos,fieldWidth,fields);
+        //3rd Row down
+        canvas.drawCircle(innerPos,innerPos,fieldWidth,fields);
+        canvas.drawCircle(innerPos,canvas.getHeight()/2,fieldWidth,fields);
+        canvas.drawCircle(innerPos,canvas.getHeight()-innerPos,fieldWidth,fields);
+        //4th Row down
+        canvas.drawCircle(canvas.getWidth()-innerPos,innerPos,fieldWidth,fields);
+        canvas.drawCircle(canvas.getWidth()-innerPos,canvas.getHeight()/2,fieldWidth,fields);
+        canvas.drawCircle(canvas.getWidth()-innerPos,canvas.getHeight()-innerPos,fieldWidth,fields);
+        //5th Row down
+        canvas.drawCircle(canvas.getWidth()-middlePos,middlePos,fieldWidth,fields);
+        canvas.drawCircle(canvas.getWidth()-middlePos,canvas.getHeight()/2,fieldWidth,fields);
+        canvas.drawCircle(canvas.getWidth()-middlePos,canvas.getHeight()-middlePos,fieldWidth,fields);
+        //6th Row down
+        canvas.drawCircle(canvas.getWidth()-outerPos,outerPos,fieldWidth,fields);
+        canvas.drawCircle(canvas.getWidth()-outerPos,canvas.getHeight()/2,fieldWidth,fields);
+        canvas.drawCircle(canvas.getWidth()-outerPos,canvas.getHeight()-outerPos,fieldWidth,fields);
+        //MiddleRow
+        canvas.drawCircle(canvas.getWidth()/2,outerPos,fieldWidth,fields);
+        canvas.drawCircle(canvas.getWidth()/2,middlePos,fieldWidth,fields);
+        canvas.drawCircle(canvas.getWidth()/2,innerPos,fieldWidth,fields);
+        canvas.drawCircle(canvas.getWidth()/2,canvas.getHeight()-innerPos,fieldWidth,fields);
+        canvas.drawCircle(canvas.getWidth()/2,canvas.getHeight()-middlePos,fieldWidth,fields);
+        canvas.drawCircle(canvas.getWidth()/2,canvas.getHeight()-outerPos,fieldWidth,fields);
 
-        for (int i=0; i<24; i++){
 
-            canvas.drawCircle(30,30,30,fields);
-
-        }
 
 
 
