@@ -61,8 +61,8 @@ public class DrawField extends View
 
         int space = 350;
         int outerPos = 30;
-        int middlePos = 200;
-        int innerPos = 350;
+        int middlePos = 170;
+        int innerPos = 320;
         int fieldWidth = 30;
 
 
